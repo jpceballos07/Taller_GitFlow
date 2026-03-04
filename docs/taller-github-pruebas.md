@@ -1,4 +1,19 @@
 # Documento de Pruebas
+## Descripción del Sistema
+
+El sistema permite gestionar eventos académicos y la participación de estudiantes en ellos.  
+Los estudiantes pueden registrarse en el sistema, consultar eventos disponibles e inscribirse si cumplen ciertas condiciones.  
+El sistema controla la disponibilidad de cupos y evita inscripciones duplicadas.  
+Además, valida que los estudiantes estén registrados antes de permitir cualquier inscripción.
+
+## Requerimientos a Evaluar
+
+- *RF-01:* Registro de estudiantes en el sistema.  
+- *RF-02:* Creación y gestión de eventos con cupos disponibles.  
+- *RF-03:* Inscripción de estudiantes a eventos, validando que el estudiante esté registrado, que haya cupos disponibles y que no esté inscrito previamente.
+
+--- 
+
 ### RF-01 Registro de estudiante
 ### Análisis del enunciado
 *   **Requerimiento:** RF-01 Registro de Estudiante (Edad).
@@ -20,6 +35,8 @@ El requerimiento establece un **rango numérico definido** [1]. El Análisis de 
 | **CP-02** | Límite Inferior (Válido) | **16** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **16**.<br>3. Enviar el registro. | **Aceptado.** El sistema procesa el formulario y permite el registro. |
 | **CP-03** | Límite Superior (Válido) | **65** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **65**.<br>3. Enviar el registro. | **Aceptado.** El sistema procesa el formulario y permite el registro. |
 | **CP-04** | Límite Sup. + 1 (Inválido) | **66** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **66**.<br>3. Enviar el registro. | **Rechazado.** El sistema bloquea el registro y muestra error. |
+
+--- 
 
 ### RF-02 Código de Estudiante
 1. Análisis del requerimiento
@@ -45,13 +62,24 @@ El requerimiento define reglas claras sobre el formato del código. Mediante par
 | CP-07 | E1234A67  | Contiene una letra en la parte numérica     | Registro rechazado |
 | CP-08 | e1234567  | Inicia con "e" minúscula                    | Registro rechazado |
 
-=======
-### 2. Técnica de prueba más adecuada
-La técnica más adecuada es el **Análisis de Valor Límite (AVL)** [1, 2].
+---
+### RF-03 Inscripción a evento
 
-### 3. Justificación de la técnica
-El requerimiento establece un **rango numérico definido** [1]. El Análisis de Valor Límite es idóneo porque se basa en probar los valores en las fronteras exactas del rango acotado ($a$ y $b$) y los valores justo arriba y justo abajo de estos [2], que es donde estadísticamente ocurren la mayoría de los defectos lógicos de programación.
+### Analisis de requerimiento
 
+### Técnica seleccionada: Tabla de decisión  
+
+### Justificación:
+La inscripción depende de la combinación de varias condiciones (registro del estudiante, disponibilidad de cupos y no estar inscrito previamente). La tabla de decisión permite evaluar todas las combinaciones posibles.
+# Casos de Prueba Diseñados
+## RF-03
+
+| Caso | Registrado | Cupos disponibles | Ya inscrito | Resultado esperado |
+|----|----|----|----|----|
+| CP-05 | Sí | Sí | No | Inscripción exitosa |
+| CP-06 | Sí | No | No | Inscripción rechazada |
+
+---
 
 ## 5. Trazabilidad
 
