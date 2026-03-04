@@ -1,8 +1,26 @@
 # Documento de Pruebas
+### RF-01 Registro de estudiante
+### Análisis del enunciado
+*   **Requerimiento:** RF-01 Registro de Estudiante (Edad).
+*   **Regla de negocio:** El sistema debe permitir el registro de estudiantes cuya edad esté entre 16 y 65 años inclusive.
+*   **Variable de entrada ($x$):** Edad del estudiante (valor numérico entero).
+*   **Condición lógica:** $16 \le x \le 65$.
 
-## 1. Descripcion del Sistema
+### Técnica de prueba más adecuada
+La técnica más adecuada es el **Análisis de Valor Límite (AVL)** [1, 2].
 
-## 2. Requerimientos a Evaluar
+### Justificación de la técnica
+El requerimiento establece un **rango numérico definido** [1]. El Análisis de Valor Límite es idóneo porque se basa en probar los valores en las fronteras exactas del rango acotado ($a$ y $b$) y los valores justo arriba y justo abajo de estos [2], que es donde estadísticamente ocurren la mayoría de los defectos lógicos de programación.
+
+### Diseño de los Casos de Prueba (AVL)
+=======
+| ID | Tipo de Límite | Valor (Edad) | Pasos de la Prueba | Resultado Esperado |
+| :--- | :--- | :---: | :--- | :--- |
+| **CP-01** | Límite Inferior - 1 (Inválido) | **15** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **15**.<br>3. Enviar el registro. | **Rechazado.** El sistema bloquea el registro y muestra error. |
+| **CP-02** | Límite Inferior (Válido) | **16** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **16**.<br>3. Enviar el registro. | **Aceptado.** El sistema procesa el formulario y permite el registro. |
+| **CP-03** | Límite Superior (Válido) | **65** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **65**.<br>3. Enviar el registro. | **Aceptado.** El sistema procesa el formulario y permite el registro. |
+| **CP-04** | Límite Sup. + 1 (Inválido) | **66** | 1. Ingresar al formulario de registro.<br>2. Ingresar la edad: **66**.<br>3. Enviar el registro. | **Rechazado.** El sistema bloquea el registro y muestra error. |
+
 ### RF-02 Código de Estudiante
 1. Análisis del requerimiento
 El código del estudiante debe cumplir tres condiciones:
@@ -27,10 +45,15 @@ El requerimiento define reglas claras sobre el formato del código. Mediante par
 | CP-07 | E1234A67  | Contiene una letra en la parte numérica     | Registro rechazado |
 | CP-08 | e1234567  | Inicia con "e" minúscula                    | Registro rechazado |
 
-## 3. Tecnicas de Prueba Aplicadas
+=======
+### 2. Técnica de prueba más adecuada
+La técnica más adecuada es el **Análisis de Valor Límite (AVL)** [1, 2].
 
-## 4. Casos de Prueba Diseñados
+### 3. Justificación de la técnica
+El requerimiento establece un **rango numérico definido** [1]. El Análisis de Valor Límite es idóneo porque se basa en probar los valores en las fronteras exactas del rango acotado ($a$ y $b$) y los valores justo arriba y justo abajo de estos [2], que es donde estadísticamente ocurren la mayoría de los defectos lógicos de programación.
+
 
 ## 5. Trazabilidad
 
 ## 6. Gestion de Versiones (GitFlow)
+
