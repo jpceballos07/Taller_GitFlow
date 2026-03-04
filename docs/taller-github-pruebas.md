@@ -18,13 +18,14 @@ Técnica seleccionada: Partición de equivalencia
 El requerimiento define reglas claras sobre el formato del código. Mediante partición de equivalencia se pueden dividir los datos de entrada en clases válidas e inválidas, reduciendo la cantidad de pruebas necesarias mientras se verifica el comportamiento del sistema.
 
 ### Casos de Prueba Diseñados
-ID	     Entrada 	Descripción	                                Resultado Esperado
-CP-03	   E1234567	Código válido que cumple las 3 condiciones	Registro aceptado
-CP-04	   12345678	No inicia con "E"	                          Registro rechazado
-CP-05	   E123456	Menos de 8 caracteres	                      Registro rechazado
-CP-06	   E12345678	Más de 8 caracteres	                      Registro rechazado
-CP-07	   E1234A67	 Contiene una letra en la parte numérica	  Registro rechazado
-CP-08	   e1234567	 Inicia con "e" minúscula	                  Registro rechazado
+| ID    | Entrada   | Descripción                                | Resultado Esperado |
+|-------|-----------|---------------------------------------------|--------------------|
+| CP-03 | E1234567  | Código válido que cumple las 3 condiciones  | Registro aceptado  |
+| CP-04 | 12345678  | No inicia con "E"                           | Registro rechazado |
+| CP-05 | E123456   | Menos de 8 caracteres                       | Registro rechazado |
+| CP-06 | E12345678 | Más de 8 caracteres                         | Registro rechazado |
+| CP-07 | E1234A67  | Contiene una letra en la parte numérica     | Registro rechazado |
+| CP-08 | e1234567  | Inicia con "e" minúscula                    | Registro rechazado |
 
 ## 3. Tecnicas de Prueba Aplicadas
 
